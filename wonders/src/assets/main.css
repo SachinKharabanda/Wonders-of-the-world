@@ -1,3 +1,4 @@
+@import url('https://fonts.cdnfonts.com/css/bukhari-script');
 
 body {
     background: rgb(0,0,0);
@@ -6,23 +7,146 @@ body {
 }
 
 .flexbox {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: center;
-    flex-direction: column;
+    display: flex; /* Enables flexible layout */
+    flex-direction: column; /* Stacks elements vertically */
+    align-items: center; /* Centers content horizontally */
+    width: 100%; /* Ensures full width */
+    gap: 20px; /* Creates spacing between elements */
 }
 
 .title {
+    font-family: 'Bukhari Script', sans-serif; /* Sets the font to match the mockup */
+    font-weight: bold;
+    color: white;
+    background: #606060; /* Dark grey background for contrast */
+    display: flex; /* Allows centering */
+    justify-content: center; /* Centers the text inside */
+    align-items: center; /* Centers vertically */
+    
+    width: 100%; /* Makes the title bar stretch across the full width */
+    padding: 15px 0; /* Adds padding for better spacing */
+    border-radius: 40px; /* Gives rounded edges */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Adds a shadow for depth */
 }
 
+.title h1 {
+    margin: 0; /* Removes any default margin */
+    font-size: 2rem; /* Increases the font size for visibility */
+    text-transform: uppercase; /* Ensures text is all uppercase */
+}
+
+
 .navigation {
-    display: flex;
-    justify-content:space-evenly;
-    align-items: baseline;
-    width: 100%;
+    display: flex; /* Enables flexible layout */
+    justify-content: space-evenly; /* Ensures equal spacing */
+    align-items: center; /* Aligns items properly */
+    width: 100%; /* Ensures it spans full width */
+    padding: 10px 0; /* Adds some spacing */
+    margin-top: 10px; /* Separates from title bar */
+}
+
+.navigation ol {
+    width: 100%; /* Makes sure the list spans full width */
+    display: flex; /* Uses flexbox */
+    justify-content: space-evenly; /* Distributes items evenly */
+    padding: 0;
+    list-style: none; /* Removes bullet points */
 }
 
 .navigation li {
-    display: inline;
+    flex-grow: 1; /* Ensures all items take up equal space */
+    text-align: center; /* Centers text inside */
+    font-family: 'Bukhari Script', sans-serif; /* Keeps the stylish font */
+    color: white; /* Keeps text white */
+    background: #606060; /* Dark grey background */
+    padding: 10px 20px; /* Adds spacing inside */
+    border-radius: 30px; /* Rounds the button edges */
+    border: 2px solid transparent; /* Initially no border */
+    transition: border 0.3s ease-in-out, background 0.3s ease-in-out; /* Smooth hover effect */
+    max-width: 150px; /* Prevents buttons from becoming too wide */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Adds a shadow for depth */
 }
+
+/* White outline when hovered */
+.navigation li:hover {
+    border: 2px solid white; /* Adds a white border */
+    background: #606060; /* Keeps background the same */
+    cursor: pointer;
+}
+
+/* White outline when the route is active */
+.navigation li.active {
+    border: 2px solid white; /* Adds a white border when selected */
+    background: #606060; /* Keeps background the same */
+    color: white; /* Ensures text stays white */
+}
+
+/* Ensures links inside buttons behave properly */
+.navigation li a {
+    text-decoration: none;
+    color: inherit; /* Inherit text color from parent */
+    display: block; /* Makes the link fill the entire button */
+    padding: 10px 20px;
+}
+
+/* Carousel Styling */
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Image container to align images properly */
+.image-container {
+    display: flex;
+    gap: 15px;
+}
+
+/* Individual images */
+.carousel-image {
+    width: 200px; /* Adjust as needed */
+    height: auto;
+    border-radius: 10px;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Fully visible active image */
+.active-image {
+    opacity: 1;
+}
+
+/* Greyed-out non-active images */
+.faded-image {
+    opacity: 0.4; /* Adjust opacity to match your design */
+    filter: grayscale(80%); /* Optional: Make them slightly desaturated */
+}
+
+/* Navigation buttons */
+.nav-button {
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Navigation dots */
+.carousel-dots {
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Dot styles */
+.carousel-dots span {
+    cursor: pointer;
+    font-size: 20px;
+    margin: 5px;
+    color: grey;
+}
+
+/* Active dot */
+.carousel-dots .active {
+    color: white;
+}
+

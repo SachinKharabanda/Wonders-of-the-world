@@ -1,15 +1,36 @@
 <script setup>
+  import { useCarousel } from "../composables/useCarousel"; // Use relative path
+  import { wonderImages } from "../data/imageData"; // Use relative path
 
+  // Setup carousel with images for this wonder
+  const { images, currentIndex, nextSlide, prevSlide } = useCarousel(wonderImages.wonder1);
 </script>
 
 <template>
-  <div class="images"></div>
-  <div class="description">
-    <h1>Wonder 1: Great Pyramid Of Giza</h1>
-    <p>The Great Pyramid of Giza, the only surviving wonder of the ancient world, was built around 2560 BCE as a tomb for the Pharaoh Khufu. Standing at an original height of 146.6 meters, it was the tallest man-made structure for over 3,800 years. Constructed with approximately 2.3 million limestone blocks, its precision and scale demonstrate the advanced engineering skills of ancient Egyptians. Despite centuries of weathering, the pyramid remains a symbol of Egypt's grandeur and a marvel of architectural achievement.</p>
+  <div class="carousel-container">
+    <!-- Left navigation button -->
+    <button @click="prevSlide" class="nav-button">←</button>
+
+    <!-- Image display -->
+    <div class="image-container">
+      <img v-for="(image, index) in images"
+           :key="index"
+           :src="image"
+           :class="{ 'active-image': index === currentIndex, 'faded-image': index !== currentIndex }"
+           class="carousel-image" />
+    </div>
+
+    <!-- Right navigation button -->
+    <button @click="nextSlide" class="nav-button">→</button>
+  </div>
+
+  <!-- Navigation Dots -->
+  <div class="carousel-dots">
+    <span v-for="(dot, index) in images.length"
+          :key="index"
+          :class="{ active: index === currentIndex }"
+          @click="currentIndex = index">
+      ●
+    </span>
   </div>
 </template>
-
-<style second>
-
-</style>
