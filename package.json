@@ -1,5 +1,9 @@
 {
   "dependencies": {
     "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "@vue/cli-service": "^5.0.8",
+    "gh-pages": "^6.3.0"
   }
 }
