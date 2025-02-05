@@ -3,7 +3,7 @@ import './assets/main.css'
 import { createApp } from 'vue'
 import App from './App.vue'
 
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import wonder1 from './components/wonder1.vue'
 import wonder2 from './components/wonder2.vue'
 import wonder3 from './components/wonder3.vue'
@@ -23,7 +23,7 @@ const router = createRouter({
     { path: "/wonder6", component: wonder6 },
     { path: "/wonder7", component: wonder7 }
   ],
-  history:createWebHistory()
+  history: createWebHashHistory()
 });
 
 createApp(App).use(router).mount('#app')
